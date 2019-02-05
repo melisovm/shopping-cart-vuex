@@ -3,7 +3,6 @@
     <h1 class="title"></h1>
     <p v-show="!products.length">
       <i>Your cart is empty!</i>
-      <router-link to="/">Go shopping</router-link>
     </p>
     <table
       class="table is-bordered"
@@ -35,13 +34,13 @@
         v-show="products.length"
         class="button is-primary abs"
       >Continue Shopping</router-link>
-      <router-link
-        to="/"
-        class="button is-danger"
+      <button
+        class="button is-primary"
         v-show="products.length"
+        @click="checkout"
       >
         Buy
-      </router-link>
+      </button>
     </p>
   </div>
 </template>
@@ -63,7 +62,7 @@ export default {
   },
   methods: {
     checkout () {
-      alert('Pay me $' + this.total)
+      alert('Total price $' + this.total)
     }
   }
 }
